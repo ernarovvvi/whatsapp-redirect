@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WhatsApp топқа қосылу</title>
-    <meta name="description" content="WhatsApp тобына қосылу сілтемесі">
-    
+
     <!-- Prevent caching -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="WhatsApp топқа қосылу">
-    <meta property="og:description" content="WhatsApp тобына қосылу үшін басыңыз">
+    <!-- OG tags for TikTok preview -->
+    <meta property="og:title" content="WhatsApp топқа қосылу 💬">
+    <meta property="og:description" content="Топқа қосылу үшін басыңыз">
     <meta property="og:type" content="website">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -32,44 +27,27 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #075e54 0%, #128c7e 30%, #25d366 70%, #dcf8c6 100%);
-            padding: 20px;
+            padding: 16px;
             overflow: hidden;
         }
 
-        /* Animated background bubbles */
         .bg-bubbles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; overflow: hidden; pointer-events: none;
         }
-
         .bg-bubbles li {
-            position: absolute;
-            list-style: none;
-            display: block;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.08);
-            bottom: -160px;
-            border-radius: 50%;
-            animation: float-up 20s infinite;
+            position: absolute; list-style: none; display: block;
+            width: 40px; height: 40px; background: rgba(255,255,255,0.08);
+            bottom: -160px; border-radius: 50%; animation: float-up 20s infinite;
         }
-
-        .bg-bubbles li:nth-child(1)  { left: 10%;  width: 80px;  height: 80px;  animation-delay: 0s;    animation-duration: 18s; }
-        .bg-bubbles li:nth-child(2)  { left: 20%;  width: 20px;  height: 20px;  animation-delay: 2s;    animation-duration: 22s; }
-        .bg-bubbles li:nth-child(3)  { left: 25%;  width: 50px;  height: 50px;  animation-delay: 4s;    animation-duration: 16s; }
-        .bg-bubbles li:nth-child(4)  { left: 40%;  width: 60px;  height: 60px;  animation-delay: 0s;    animation-duration: 20s; }
-        .bg-bubbles li:nth-child(5)  { left: 65%;  width: 20px;  height: 20px;  animation-delay: 3s;    animation-duration: 14s; }
-        .bg-bubbles li:nth-child(6)  { left: 75%;  width: 110px; height: 110px; animation-delay: 5s;    animation-duration: 24s; }
-        .bg-bubbles li:nth-child(7)  { left: 85%;  width: 30px;  height: 30px;  animation-delay: 7s;    animation-duration: 19s; }
-        .bg-bubbles li:nth-child(8)  { left: 50%;  width: 70px;  height: 70px;  animation-delay: 10s;   animation-duration: 21s; }
-        .bg-bubbles li:nth-child(9)  { left: 5%;   width: 15px;  height: 15px;  animation-delay: 1s;    animation-duration: 25s; }
-        .bg-bubbles li:nth-child(10) { left: 90%;  width: 90px;  height: 90px;  animation-delay: 8s;    animation-duration: 17s; }
+        .bg-bubbles li:nth-child(1)  { left:10%;  width:80px;  height:80px;  animation-delay:0s;  animation-duration:18s; }
+        .bg-bubbles li:nth-child(2)  { left:20%;  width:20px;  height:20px;  animation-delay:2s;  animation-duration:22s; }
+        .bg-bubbles li:nth-child(3)  { left:25%;  width:50px;  height:50px;  animation-delay:4s;  animation-duration:16s; }
+        .bg-bubbles li:nth-child(4)  { left:40%;  width:60px;  height:60px;  animation-delay:0s;  animation-duration:20s; }
+        .bg-bubbles li:nth-child(5)  { left:65%;  width:20px;  height:20px;  animation-delay:3s;  animation-duration:14s; }
+        .bg-bubbles li:nth-child(6)  { left:75%;  width:110px; height:110px; animation-delay:5s;  animation-duration:24s; }
+        .bg-bubbles li:nth-child(7)  { left:85%;  width:30px;  height:30px;  animation-delay:7s;  animation-duration:19s; }
+        .bg-bubbles li:nth-child(8)  { left:50%;  width:70px;  height:70px;  animation-delay:10s; animation-duration:21s; }
 
         @keyframes float-up {
             0%   { bottom: -160px; transform: translateX(0) rotate(0deg); opacity: 0.4; }
@@ -77,424 +55,452 @@
         }
 
         .card {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px 32px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(255, 255, 255, 0.2);
-            animation: card-entrance 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; z-index: 1;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px; padding: 36px 28px;
+            max-width: 400px; width: 100%; text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.2);
+            animation: card-entrance 0.5s cubic-bezier(0.23,1,0.32,1);
         }
 
         @keyframes card-entrance {
-            0%   { opacity: 0; transform: translateY(30px) scale(0.95); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
+            0%   { opacity:0; transform:translateY(30px) scale(0.95); }
+            100% { opacity:1; transform:translateY(0) scale(1); }
         }
 
-        .whatsapp-icon {
-            width: 80px;
-            height: 80px;
+        .wa-icon {
+            width: 76px; height: 76px;
             background: linear-gradient(135deg, #25d366, #128c7e);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 24px rgba(37,211,102,0.35);
             animation: icon-pulse 2s ease-in-out infinite;
         }
-
         @keyframes icon-pulse {
-            0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35); }
-            50%      { box-shadow: 0 8px 36px rgba(37, 211, 102, 0.55); }
+            0%,100% { box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+            50%     { box-shadow: 0 8px 36px rgba(37,211,102,0.55); }
         }
+        .wa-icon svg { width: 42px; height: 42px; fill: white; }
 
-        .whatsapp-icon svg {
-            width: 44px;
-            height: 44px;
-            fill: white;
-        }
+        h1 { font-size: 21px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+        .subtitle { font-size: 13px; color: #6b7280; margin-bottom: 24px; line-height: 1.5; }
 
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 28px;
-            line-height: 1.5;
-        }
-
-        /* Spinner */
-        .spinner-container {
-            margin-bottom: 24px;
-        }
-
+        .spinner-wrap { margin-bottom: 20px; }
         .spinner {
-            width: 48px;
-            height: 48px;
-            border: 4px solid rgba(37, 211, 102, 0.15);
-            border-top-color: #25d366;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto;
+            width: 44px; height: 44px;
+            border: 4px solid rgba(37,211,102,0.15);
+            border-top-color: #25d366; border-radius: 50%;
+            animation: spin 0.8s linear infinite; margin: 0 auto;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .status { font-size: 14px; color: #374151; font-weight: 500; margin-bottom: 18px; min-height: 22px; }
+
+        .progress { width:100%; height:4px; background:rgba(37,211,102,0.12); border-radius:4px; overflow:hidden; margin-bottom:24px; }
+        .progress .fill { height:100%; background:linear-gradient(90deg,#25d366,#128c7e); border-radius:4px; animation: pfill 2.5s ease-in-out forwards; }
+        @keyframes pfill { 0%{width:0}30%{width:35%}60%{width:65%}90%{width:88%}100%{width:100%} }
+
+        /* Buttons */
+        .btn {
+            display: block; width: 100%; padding: 15px 20px;
+            border: none; border-radius: 14px; font-size: 15px; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+            transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
+            text-decoration: none; text-align: center;
+            margin-bottom: 10px;
         }
-
-        .status-text {
-            font-size: 15px;
-            color: #374151;
-            font-weight: 500;
-            margin-bottom: 20px;
-            min-height: 24px;
-            transition: opacity 0.3s ease;
-        }
-
-        /* Progress bar */
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(37, 211, 102, 0.12);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 28px;
-        }
-
-        .progress-bar .fill {
-            height: 100%;
-            background: linear-gradient(90deg, #25d366, #128c7e);
-            border-radius: 4px;
-            animation: progress-fill 2s ease-in-out forwards;
-        }
-
-        @keyframes progress-fill {
-            0%   { width: 0%; }
-            30%  { width: 40%; }
-            60%  { width: 70%; }
-            90%  { width: 90%; }
-            100% { width: 100%; }
-        }
-
-        /* Manual button (shown as fallback) */
-        .btn-open {
-            display: none;
-            width: 100%;
-            padding: 16px 24px;
+        .btn-primary {
             background: linear-gradient(135deg, #25d366, #128c7e);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.3px;
+            color: white; box-shadow: 0 4px 16px rgba(37,211,102,0.3);
         }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
 
-        .btn-open:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+        .btn-secondary {
+            background: rgba(37,211,102,0.08); color: #128c7e;
+            border: 2px solid rgba(18,140,126,0.2);
         }
+        .btn-secondary:hover { background: rgba(37,211,102,0.15); }
 
-        .btn-open:active {
-            transform: translateY(0);
-        }
-
-        .btn-open.show {
-            display: block;
-            animation: btn-appear 0.4s ease;
-        }
-
-        @keyframes btn-appear {
-            0%   { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Secondary open-browser button */
-        .btn-browser {
-            display: none;
-            width: 100%;
-            padding: 14px 24px;
-            background: transparent;
-            color: #128c7e;
-            border: 2px solid #128c7e;
-            border-radius: 14px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-            font-family: 'Inter', sans-serif;
-            margin-top: 12px;
-        }
-
-        .btn-browser:hover {
-            background: rgba(18, 140, 126, 0.08);
-        }
-
-        .btn-browser.show {
-            display: block;
-            animation: btn-appear 0.4s ease 0.1s both;
-        }
-
-        .footer-note {
-            margin-top: 20px;
-            font-size: 11px;
-            color: #9ca3af;
-            line-height: 1.4;
+        .btn-copy {
+            background: #f0f0f0; color: #333;
         }
 
         .hidden { display: none !important; }
+        .show { display: block !important; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { 0%{opacity:0;transform:translateY(8px)} 100%{opacity:1;transform:translateY(0)} }
+
+        /* TikTok instruction */
+        .tiktok-guide {
+            display: none;
+            background: #fff8e1; border: 2px solid #ffc107;
+            border-radius: 16px; padding: 20px; margin-bottom: 16px;
+            text-align: left;
+        }
+        .tiktok-guide.show { display: block; animation: fadeIn 0.4s ease; }
+        .tiktok-guide h3 { font-size: 15px; color: #e65100; margin-bottom: 12px; text-align: center; }
+        .tiktok-guide .step {
+            display: flex; align-items: center; gap: 12px;
+            padding: 8px 0; font-size: 13px; color: #333; line-height: 1.4;
+        }
+        .tiktok-guide .step-num {
+            min-width: 28px; height: 28px;
+            background: #ff6f00; color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px;
+        }
+        .tiktok-guide .dots-icon {
+            display: inline-block; font-size: 20px; font-weight: 900;
+            background: #333; color: white; border-radius: 6px;
+            padding: 0 6px; line-height: 1.4; vertical-align: middle;
+        }
+
+        .footer { margin-top: 16px; font-size: 11px; color: #9ca3af; }
+
+        /* Auto-phase sections */
+        #phase-auto { }
+        #phase-manual { display: none; }
     </style>
 </head>
 <body>
 
-    <!-- Animated background -->
     <ul class="bg-bubbles">
-        <li></li><li></li><li></li><li></li><li></li>
-        <li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li>
     </ul>
 
-    <div class="card" id="card">
-        <div class="whatsapp-icon">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+    <!-- Hidden form for POST redirect trick -->
+    <form id="sneakForm" method="GET" action="" target="_blank" style="display:none">
+        <input type="hidden" name="r" value="1">
+    </form>
+
+    <!-- Hidden iframe for scheme tricks -->
+    <iframe id="schemeFrame" style="display:none;width:0;height:0;border:0" sandbox="allow-top-navigation allow-scripts"></iframe>
+
+    <div class="card">
+        <div class="wa-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
 
         <h1>WhatsApp топқа қосылу</h1>
-        <p class="subtitle">Сілтеме автоматты түрде ашылуда...</p>
+        <p class="subtitle" id="subtitle">Автоматты бағыттау...</p>
 
-        <div class="spinner-container" id="spinnerContainer">
-            <div class="spinner"></div>
+        <!-- PHASE 1: Auto redirect -->
+        <div id="phase-auto">
+            <div class="spinner-wrap"><div class="spinner"></div></div>
+            <p class="status" id="statusText">Браузерге бағытталуда...</p>
+            <div class="progress"><div class="fill"></div></div>
         </div>
 
-        <p class="status-text" id="statusText">Бағытталуда...</p>
+        <!-- PHASE 2: Manual fallback -->
+        <div id="phase-manual">
 
-        <div class="progress-bar" id="progressBar">
-            <div class="fill"></div>
+            <!-- TikTok specific guide -->
+            <div class="tiktok-guide" id="tiktokGuide">
+                <h3>📱 TikTok-тан шығу нұсқаулығы</h3>
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <span>Жоғарғы оң жақтағы <span class="dots-icon">⋯</span> белгісін басыңыз</span>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <span><strong>"Браузерде ашу"</strong> немесе <strong>"Open in browser"</strong> таңдаңыз</span>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <span>WhatsApp автоматты ашылады ✅</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" id="btnWhatsApp" onclick="forceOpen()">
+                💬 WhatsApp-ты ашу
+            </button>
+
+            <button class="btn btn-secondary" id="btnShare" onclick="shareLink()">
+                📤 Сілтемені бөлісу / Браузерде ашу
+            </button>
+
+            <button class="btn btn-copy" id="btnCopy" onclick="copyLink()">
+                📋 Сілтемені көшіру
+            </button>
+
+            <p class="footer">Сілтемені көшіріп, браузерге қойыңыз</p>
         </div>
-
-        <a href="#" class="btn-open" id="btnOpen" onclick="openWhatsApp(); return false;">
-            ✅ WhatsApp-ты ашу
-        </a>
-
-        <a href="#" class="btn-browser" id="btnBrowser" onclick="openInBrowser(); return false;">
-            🌐 Браузерде ашу
-        </a>
-
-        <p class="footer-note" id="footerNote">
-            Автоматты түрде ашылмаса, жоғарыдағы батырманы басыңыз
-        </p>
     </div>
 
     <script>
-        // ===== CONFIGURATION =====
-        const WHATSAPP_LINK = 'https://chat.whatsapp.com/KkrfMNiwKnN1MHt34gkqH0';
+        // ============ CONFIG ============
+        const WA_LINK   = 'https://chat.whatsapp.com/KkrfMNiwKnN1MHt34gkqH0';
+        const WA_CODE   = 'KkrfMNiwKnN1MHt34gkqH0';
+        const THIS_PAGE = window.location.href;
 
-        // ===== DETECTION =====
-        const ua = navigator.userAgent || navigator.vendor || window.opera || '';
-        const uaLower = ua.toLowerCase();
+        // ============ DETECTION ============
+        const ua = (navigator.userAgent || navigator.vendor || '').toLowerCase();
 
-        function isInAppBrowser() {
-            const inAppPatterns = [
-                'fbav', 'fban',                    // Facebook
-                'fb_iab', 'fbios',                 // Facebook iOS
-                'instagram',                        // Instagram
-                'musical_ly', 'bytedance',         // TikTok
-                'tiktok',                           // TikTok
-                'twitter', 'twitterand',           // Twitter/X
-                'snapchat',                         // Snapchat
-                'line/',                            // LINE
-                'wv)',                              // Android WebView
-                'telegram',                         // Telegram
-                'micromessenger',                   // WeChat
-                'kakaotalk',                        // KakaoTalk
-                'naver', 'whale',                  // Naver
-                'threads',                          // Threads
-                'linkedin',                         // LinkedIn
-                'pinterest',                        // Pinterest
-                'reddit',                           // Reddit
-            ];
-            return inAppPatterns.some(p => uaLower.includes(p));
+        const isTikTok    = /musical_ly|bytedance|tiktok/i.test(ua);
+        const isInstagram = /instagram/i.test(ua);
+        const isFacebook  = /fbav|fban|fb_iab|fbios/i.test(ua);
+        const isTelegram  = /telegram/i.test(ua);
+        const isTwitter   = /twitter/i.test(ua);
+        const isSnapchat  = /snapchat/i.test(ua);
+        const isAndroid   = /android/i.test(ua);
+        const isIOS       = /iphone|ipad|ipod/i.test(ua);
+        const isWebView   = /wv\)/i.test(ua);
+
+        const isInApp = isTikTok || isInstagram || isFacebook || isTelegram ||
+                        isTwitter || isSnapchat || isWebView ||
+                        /line\/|micromessenger|kakaotalk|naver|whale|threads|linkedin|pinterest|reddit/i.test(ua);
+
+        // ============ UI HELPERS ============
+        const $ = id => document.getElementById(id);
+
+        function showManual(msg) {
+            $('phase-auto').style.display = 'none';
+            $('phase-manual').style.display = 'block';
+            $('subtitle').textContent = msg || 'Төмендегі батырманы басыңыз';
+            if (isTikTok) $('tiktokGuide').classList.add('show');
         }
 
-        function isAndroid()  { return /android/i.test(ua); }
-        function isIOS()      { return /iphone|ipad|ipod/i.test(ua) && !window.MSStream; }
-        function isSamsung()  { return /samsungbrowser/i.test(ua); }
+        // ============ REDIRECT STRATEGIES ============
 
-        // ===== REDIRECT STRATEGIES =====
-        const statusText = document.getElementById('statusText');
-        const btnOpen    = document.getElementById('btnOpen');
-        const btnBrowser = document.getElementById('btnBrowser');
-        const spinner    = document.getElementById('spinnerContainer');
-
-        function showButtons(msg) {
-            statusText.textContent = msg || 'Батырманы басыңыз';
-            spinner.classList.add('hidden');
-            btnOpen.classList.add('show');
-            btnBrowser.classList.add('show');
+        // Strategy 1: Google redirect middleman
+        // Google's URL redirector often forces external browser in in-app browsers
+        function tryGoogleRedirect() {
+            const googleUrl = 'https://www.google.com/url?sa=t&source=web&rct=j&url=' + encodeURIComponent(WA_LINK);
+            window.location.href = googleUrl;
         }
 
-        function openWhatsApp() {
-            // Try intent first on Android, then fallback to direct link
-            if (isAndroid()) {
-                try {
-                    window.location.href = 'intent://chat.whatsapp.com/KkrfMNiwKnN1MHt34gkqH0#Intent;scheme=https;package=com.whatsapp;end';
-                    return;
-                } catch(e) {}
-            }
-            window.location.href = WHATSAPP_LINK;
+        // Strategy 2: Android Intent with browser fallback
+        function tryAndroidIntent() {
+            if (!isAndroid) return false;
+            // Intent to open in ANY browser, with fallback to Play Store
+            window.location.href = 'intent://chat.whatsapp.com/' + WA_CODE +
+                '#Intent;scheme=https;package=com.whatsapp;' +
+                'S.browser_fallback_url=' + encodeURIComponent(WA_LINK) + ';end';
+            return true;
         }
 
-        function openInBrowser() {
-            // Force open in external browser
-            if (isAndroid()) {
-                // Android: intent to open in Chrome or default browser
-                window.location.href = 'intent://' + WHATSAPP_LINK.replace('https://', '') + '#Intent;scheme=https;action=android.intent.action.VIEW;end';
-            } else if (isIOS()) {
-                // iOS: try x-safari scheme
-                window.location.href = 'x-safari-' + WHATSAPP_LINK;
+        // Strategy 3: Direct browser intent (Chrome/default)
+        function tryBrowserIntent() {
+            if (!isAndroid) return false;
+            window.location.href = 'intent://' + WA_LINK.replace('https://', '') +
+                '#Intent;scheme=https;action=android.intent.action.VIEW;' +
+                'category=android.intent.category.BROWSABLE;end';
+            return true;
+        }
+
+        // Strategy 4: googlechrome:// scheme
+        function tryChromeScheme() {
+            if (!isAndroid) return false;
+            window.location.href = 'googlechrome://navigate?url=' + encodeURIComponent(WA_LINK);
+            return true;
+        }
+
+        // Strategy 5: Form POST with target=_blank (sometimes escapes in-app)
+        function tryFormRedirect() {
+            const form = $('sneakForm');
+            form.action = WA_LINK;
+            form.target = '_blank';
+            try { form.submit(); return true; } catch(e) { return false; }
+        }
+
+        // Strategy 6: window.open tricks
+        function tryWindowOpen() {
+            try {
+                // Method A: window.open with specific features
+                const w = window.open(WA_LINK, '_blank', 'noopener,noreferrer');
+                if (w) return true;
+            } catch(e) {}
+            try {
+                // Method B: click a dynamically created link
+                const a = document.createElement('a');
+                a.href = WA_LINK;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.setAttribute('data-bypass', 'true');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                return true;
+            } catch(e) {}
+            return false;
+        }
+
+        // Strategy 7: Blob URL trick
+        // Create an HTML blob that redirects — some in-app browsers can't handle blobs
+        // and fall back to external browser
+        function tryBlobRedirect() {
+            try {
+                const html = '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0;url=' + WA_LINK + '"><script>window.location.href="' + WA_LINK + '";<\/script></head><body></body></html>';
+                const blob = new Blob([html], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                window.open(url, '_blank');
+                setTimeout(() => URL.revokeObjectURL(url), 5000);
+                return true;
+            } catch(e) { return false; }
+        }
+
+        // Strategy 8: iOS Safari scheme
+        function tryIOSSafari() {
+            if (!isIOS) return false;
+            try {
+                window.location.href = 'x-safari-' + WA_LINK;
+                return true;
+            } catch(e) { return false; }
+        }
+
+        // Strategy 9: WhatsApp deep link directly
+        function tryWhatsAppDeepLink() {
+            window.location.href = 'whatsapp://invite/' + WA_CODE;
+        }
+
+        // Strategy 10: navigator.share (opens native share sheet → "Open in browser")
+        function shareLink() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'WhatsApp топ',
+                    text: 'WhatsApp топқа қосылу',
+                    url: WA_LINK
+                }).catch(() => {
+                    copyLink();
+                });
             } else {
-                window.open(WHATSAPP_LINK, '_system');
+                copyLink();
             }
-            
-            // Fallback after short delay
-            setTimeout(function() {
-                window.location.href = WHATSAPP_LINK;
-            }, 500);
         }
 
-        // ===== MAIN REDIRECT LOGIC =====
-        function startRedirect() {
-            const inApp = isInAppBrowser();
+        // Strategy 11: Download trick — trigger a download that forces external handling
+        function tryDownloadTrick() {
+            try {
+                const html = '<html><head><meta http-equiv="refresh" content="0;url=' + WA_LINK + '"></head></html>';
+                const blob = new Blob([html], { type: 'application/octet-stream' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'whatsapp.html';
+                a.click();
+                return true;
+            } catch(e) { return false; }
+        }
 
-            if (inApp) {
-                // === IN-APP BROWSER DETECTED ===
-                statusText.textContent = 'Браузерге бағытталуда...';
-
-                if (isAndroid()) {
-                    // Strategy 1: Android Intent — open in default browser
-                    try {
-                        window.location.href = 'intent://' + WHATSAPP_LINK.replace('https://', '') + '#Intent;scheme=https;action=android.intent.action.VIEW;end';
-                    } catch(e) {}
-
-                    // Strategy 2: Fallback — try Google Chrome directly
-                    setTimeout(function() {
-                        try {
-                            window.location.href = 'googlechrome://navigate?url=' + encodeURIComponent(WHATSAPP_LINK);
-                        } catch(e) {}
-                    }, 800);
-
-                    // Strategy 3: WhatsApp intent directly
-                    setTimeout(function() {
-                        try {
-                            window.location.href = 'intent://chat.whatsapp.com/KkrfMNiwKnN1MHt34gkqH0#Intent;scheme=https;package=com.whatsapp;end';
-                        } catch(e) {}
-                    }, 1600);
-
-                    // Strategy 4: Show manual buttons
-                    setTimeout(function() {
-                        showButtons('Автоматты ашылмады — батырманы басыңыз');
-                    }, 2500);
-
-                } else if (isIOS()) {
-                    // iOS in-app browser strategies
-
-                    // Strategy 1: Try x-safari scheme
-                    try {
-                        window.location.href = 'x-safari-' + WHATSAPP_LINK;
-                    } catch(e) {}
-
-                    // Strategy 2: Try whatsapp:// deep link
-                    setTimeout(function() {
-                        try {
-                            window.location.href = 'whatsapp://chat/?code=KkrfMNiwKnN1MHt34gkqH0';
-                        } catch(e) {}
-                    }, 800);
-
-                    // Strategy 3: Try to open via window.open with _blank
-                    setTimeout(function() {
-                        try {
-                            window.open(WHATSAPP_LINK, '_blank');
-                        } catch(e) {}
-                    }, 1500);
-
-                    // Strategy 4: Show manual buttons
-                    setTimeout(function() {
-                        showButtons('Автоматты ашылмады — батырманы басыңыз');
-                    }, 2200);
-
-                } else {
-                    // Other in-app browsers
-                    window.location.href = WHATSAPP_LINK;
-                    setTimeout(function() {
-                        showButtons('Батырманы басыңыз');
-                    }, 1500);
-                }
-
+        // ============ FORCE OPEN (button click) ============
+        function forceOpen() {
+            // On button click, try everything aggressively
+            if (isAndroid) {
+                tryAndroidIntent();
+                setTimeout(tryBrowserIntent, 300);
+                setTimeout(tryChromeScheme, 600);
+                setTimeout(() => { window.location.href = WA_LINK; }, 900);
+            } else if (isIOS) {
+                tryWhatsAppDeepLink();
+                setTimeout(tryIOSSafari, 500);
+                setTimeout(() => { window.location.href = WA_LINK; }, 1000);
             } else {
-                // === REGULAR BROWSER ===
-                statusText.textContent = 'WhatsApp ашылуда...';
-
-                if (isAndroid()) {
-                    // Try WhatsApp intent
-                    window.location.href = 'intent://chat.whatsapp.com/KkrfMNiwKnN1MHt34gkqH0#Intent;scheme=https;package=com.whatsapp;end';
-                    
-                    // Fallback to direct link
-                    setTimeout(function() {
-                        window.location.href = WHATSAPP_LINK;
-                    }, 1000);
-                } else {
-                    // iOS & Desktop — direct redirect
-                    window.location.href = WHATSAPP_LINK;
-                }
-
-                // Show buttons as fallback
-                setTimeout(function() {
-                    showButtons('Автоматты ашылмады — батырманы басыңыз');
-                }, 3000);
+                window.location.href = WA_LINK;
             }
         }
 
-        // ===== SPECIAL: COPY-TO-CLIPBOARD FALLBACK =====
-        // Some in-app browsers block ALL redirects. Offer clipboard copy.
+        // ============ COPY LINK ============
         function copyLink() {
-            navigator.clipboard.writeText(WHATSAPP_LINK).then(function() {
-                alert('Сілтеме көшірілді! Браузерді ашып, сілтемені қойыңыз.');
-            }).catch(function() {
-                // Fallback for older browsers
-                var input = document.createElement('input');
-                input.value = WHATSAPP_LINK;
-                document.body.appendChild(input);
-                input.select();
-                document.execCommand('copy');
-                document.body.removeChild(input);
-                alert('Сілтеме көшірілді! Браузерді ашып, сілтемені қойыңыз.');
-            });
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(WA_LINK).then(() => {
+                    $('btnCopy').textContent = '✅ Көшірілді! Браузерге қойыңыз';
+                    $('btnCopy').style.background = '#d4edda';
+                    $('btnCopy').style.color = '#155724';
+                }).catch(fallbackCopy);
+            } else {
+                fallbackCopy();
+            }
         }
 
-        // ===== START =====
-        // Small delay to let the page render, then start redirect
-        setTimeout(startRedirect, 400);
+        function fallbackCopy() {
+            const ta = document.createElement('textarea');
+            ta.value = WA_LINK;
+            ta.style.cssText = 'position:fixed;left:-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            $('btnCopy').textContent = '✅ Көшірілді! Браузерге қойыңыз';
+            $('btnCopy').style.background = '#d4edda';
+            $('btnCopy').style.color = '#155724';
+        }
+
+        // ============ MAIN EXECUTION ============
+        function main() {
+            if (!isInApp) {
+                // ---- Normal browser: just go to WhatsApp ----
+                $('statusText').textContent = 'WhatsApp ашылуда...';
+                if (isAndroid) {
+                    tryAndroidIntent();
+                    setTimeout(() => { window.location.href = WA_LINK; }, 800);
+                } else {
+                    window.location.href = WA_LINK;
+                }
+                setTimeout(() => showManual('Автоматты ашылмады'), 3000);
+                return;
+            }
+
+            // ---- IN-APP BROWSER ----
+            $('statusText').textContent = 'Браузерге бағытталуда...';
+
+            if (isAndroid) {
+                // === ANDROID IN-APP ===
+
+                // 0ms: Google redirect (most reliable for TikTok!)
+                tryGoogleRedirect();
+
+                // 600ms: Android intent to WhatsApp
+                setTimeout(tryAndroidIntent, 600);
+
+                // 1200ms: Browser intent
+                setTimeout(tryBrowserIntent, 1200);
+
+                // 1800ms: Chrome scheme
+                setTimeout(tryChromeScheme, 1800);
+
+                // 2200ms: Form trick
+                setTimeout(tryFormRedirect, 2200);
+
+                // 2600ms: window.open
+                setTimeout(tryWindowOpen, 2600);
+
+                // 3000ms: WhatsApp deep link
+                setTimeout(tryWhatsAppDeepLink, 3000);
+
+                // 3500ms: Show manual buttons
+                setTimeout(() => showManual('Төмендегі нұсқауды орындаңыз'), 3500);
+
+            } else if (isIOS) {
+                // === iOS IN-APP ===
+
+                // 0ms: Google redirect
+                tryGoogleRedirect();
+
+                // 600ms: WhatsApp deep link
+                setTimeout(tryWhatsAppDeepLink, 600);
+
+                // 1200ms: Safari scheme
+                setTimeout(tryIOSSafari, 1200);
+
+                // 1800ms: Form trick
+                setTimeout(tryFormRedirect, 1800);
+
+                // 2200ms: window.open
+                setTimeout(tryWindowOpen, 2200);
+
+                // 2800ms: Show manual
+                setTimeout(() => showManual('Төмендегі нұсқауды орындаңыз'), 2800);
+
+            } else {
+                // === OTHER ===
+                tryGoogleRedirect();
+                setTimeout(() => { window.location.href = WA_LINK; }, 800);
+                setTimeout(() => showManual('Батырманы басыңыз'), 2000);
+            }
+        }
+
+        // Start after brief delay for page render
+        setTimeout(main, 300);
     </script>
 </body>
 </html>
