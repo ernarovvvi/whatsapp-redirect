@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: whatsapp-redirect-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_REPO
+        value: ernarovvvi/whatsapp-redirect
+      - key: ADMIN_IDS
+        sync: false
