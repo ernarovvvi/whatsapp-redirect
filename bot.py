@@ -21,6 +21,7 @@ import base64
 import re
 import logging
 from datetime import datetime, timezone, timedelta
+from typing import Optional, Tuple
 
 import requests
 from telegram import Update, BotCommand
@@ -63,7 +64,7 @@ GH_HEADERS = {
 }
 
 
-def gh_get_file(path: str) -> dict | None:
+def gh_get_file(path: str) -> Optional[dict]:
     """Fetch file info from GitHub (content + sha)."""
     url = f"{GH_API}/repos/{GITHUB_REPO}/contents/{path}"
     r = requests.get(url, headers=GH_HEADERS, timeout=15)
@@ -85,7 +86,7 @@ def gh_update_file(path: str, content: str, message: str, sha: str) -> bool:
     return r.status_code in (200, 201)
 
 
-def get_current_link() -> str | None:
+def get_current_link() -> Optional[str]:
     """Get the current WhatsApp link from config.json."""
     info = gh_get_file(CONFIG_PATH)
     if not info:
@@ -95,7 +96,7 @@ def get_current_link() -> str | None:
     return data.get("whatsapp_link")
 
 
-def update_link(new_link: str) -> tuple[bool, str]:
+def update_link(new_link: str) -> Tuple[bool, str]:
     """Update WhatsApp link in config.json on GitHub."""
     info = gh_get_file(CONFIG_PATH)
     if not info:
